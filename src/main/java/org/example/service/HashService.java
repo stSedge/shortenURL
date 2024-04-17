@@ -12,5 +12,7 @@ import java.util.Optional;
 public interface HashService {
     String addHash(Hash var1);
 
-    Optional<String> findHash(String var1);
+    String findHashByShortURL(String var1);
+
+    public String findHashByLongURL(String var2);
 }

@@ -12,8 +12,12 @@ public class HashRepositoryImpl implements HashRepository{
     public HashRepositoryImpl() {
     }
 
-    public Optional<String> findHashByLongURL(String longURL) {
-        return Optional.ofNullable(dataBase.getHash(longURL));
+    public String findHashByLongURL(String longURL) {
+        return dataBase.getHash(longURL);
+    }
+
+    public String findHashByShortURL(String shortURL) {
+        return dataBase.getLongURL(shortURL);
     }
 
     public String save(HashDao hashDao) {

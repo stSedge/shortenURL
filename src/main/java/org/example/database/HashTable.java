@@ -1,6 +1,8 @@
 package main.java.org.example.database;
 
 import java.util.HashMap;
+import java.util.Objects;
+
 import main.java.org.example.repository.dao.HashDao;
 
 public class HashTable {
@@ -22,6 +24,16 @@ public class HashTable {
 
     public String getHash(String longURL) {
         return getInstance().hashTable.get(longURL);
+    }
+
+    public String getLongURL(String shortURL) {
+
+        for (String entry : getInstance().hashTable.keySet()) {
+            String value = getInstance().hashTable.get(entry);
+            if (Objects.equals(value, shortURL))
+                return entry;
+        }
+        return null;
     }
 
 }
