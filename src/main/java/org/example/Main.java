@@ -8,6 +8,7 @@ import main.java.org.example.service.HashServiceImpl;
 import main.java.org.example.controller.HashController;
 import main.java.org.example.controller.dto.HashDto;
 import main.java.org.example.repository.HashRepositoryImpl;
+import main.java.org.example.exception.EntityNotFoundException;
 
 import java.util.Objects;
 
@@ -29,11 +30,12 @@ public class Main {
             else if (Objects.equals(chosenService, "2")) {
                 System.out.println("Введите короткую ссылку:");
                 String shortURL = ReadUtils.readLine();
-                String longURL = hashController.findHash(shortURL);
-                if (longURL != null)
+                try {
+                    String longURL = hashController.findHash(shortURL);
                     System.out.printf("Получена длинная ссылка %s%n\n", longURL);
-                else
+                } catch (EntityNotFoundException ex) {
                     System.out.printf("Такой короткой ссылки еще не было :(\n");
+                }
             }
             else {
                 System.out.printf("Мы вас не поняли, повторите запрос :(\n");

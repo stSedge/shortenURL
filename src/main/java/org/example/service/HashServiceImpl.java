@@ -6,6 +6,7 @@ import java.util.Random;
 import main.java.org.example.repository.HashRepository;
 import main.java.org.example.repository.dao.HashDao;
 import main.java.org.example.service.model.Hash;
+import main.java.org.example.exception.EntityNotFoundException;
 
 
 public class HashServiceImpl implements HashService{
@@ -43,7 +44,7 @@ public class HashServiceImpl implements HashService{
         return this.hashRepository.save(hashDao);
     }
 
-    public String findHashByShortURL(String shortURL) {
+    public String findHashByShortURL(String shortURL) throws EntityNotFoundException {
         return this.hashRepository.findHashByShortURL(shortURL);
     }
 
