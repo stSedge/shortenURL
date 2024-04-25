@@ -1,9 +1,9 @@
-package main.java.org.example.repository;
+package org.example.repository;
 
 import java.util.Optional;
 import java.util.UUID;
-import main.java.org.example.database.HashTable;
-import main.java.org.example.repository.dao.HashDao;
+import org.example.database.HashTable;
+import org.example.repository.dao.HashDao;
 
 
 public class HashRepositoryImpl implements HashRepository{

@@ -1,9 +1,9 @@
-package main.java.org.example.database;
+package org.example.database;
 
 import java.util.HashMap;
 import java.util.Objects;
 
-import main.java.org.example.repository.dao.HashDao;
+import org.example.repository.dao.HashDao;
 
 public class HashTable {
     private final HashMap<String, String> hashTable = new HashMap<>();

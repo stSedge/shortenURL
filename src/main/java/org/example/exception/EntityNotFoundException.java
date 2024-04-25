@@ -1,4 +1,4 @@
-package main.java.org.example.exception;
+package org.example.exception;
 
 public class EntityNotFoundException extends Exception {
 

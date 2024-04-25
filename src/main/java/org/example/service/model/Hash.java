@@ -1,4 +1,4 @@
-package main.java.org.example.service.model;
+package org.example.service.model;
 
 public record Hash(String longURL, String shortURL) {
 

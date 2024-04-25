@@ -1,10 +1,10 @@
-package test.java.org.example.service;
+package org.example.service;
 
-import main.java.org.example.repository.HashRepositoryImpl;
-import main.java.org.example.service.model.Hash;
-import main.java.org.example.service.HashServiceImpl;
-import main.java.org.example.service.HashService;
-import main.java.org.example.exception.EntityNotFoundException;
+import org.example.repository.HashRepositoryImpl;
+import org.example.service.model.Hash;
+import org.example.service.HashServiceImpl;
+import org.example.service.HashService;
+import org.example.exception.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

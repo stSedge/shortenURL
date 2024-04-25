@@ -1,9 +1,9 @@
-package main.java.org.example.controller;
+package org.example.controller;
 
-import main.java.org.example.controller.dto.HashDto;
-import main.java.org.example.service.HashService;
-import main.java.org.example.service.model.Hash;
-import main.java.org.example.exception.EntityNotFoundException;
+import org.example.controller.dto.HashDto;
+import org.example.service.HashService;
+import org.example.service.model.Hash;
+import org.example.exception.EntityNotFoundException;
 import java.util.Optional;
 
 

@@ -3,10 +3,10 @@
 // (powered by FernFlower decompiler)
 //
 
-package main.java.org.example.service;
+package org.example.service;
 
-import main.java.org.example.service.model.Hash;
-import main.java.org.example.exception.EntityNotFoundException;
+import org.example.service.model.Hash;
+import org.example.exception.EntityNotFoundException;
 
 import java.util.Optional;
 

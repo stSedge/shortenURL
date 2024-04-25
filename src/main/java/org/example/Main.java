@@ -1,20 +1,25 @@
-package main.java.org.example;
+package org.example;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-import main.java.org.example.utils.ReadUtils;
-import main.java.org.example.service.HashServiceImpl;
-import main.java.org.example.controller.HashController;
-import main.java.org.example.controller.dto.HashDto;
-import main.java.org.example.repository.HashRepositoryImpl;
-import main.java.org.example.exception.EntityNotFoundException;
+import org.example.utils.ReadUtils;
+import org.example.service.HashServiceImpl;
+import org.example.controller.HashController;
+import org.example.controller.dto.HashDto;
+import org.example.repository.HashRepositoryImpl;
+import org.example.repository.HashRepository;
+import org.example.exception.EntityNotFoundException;
+import org.example.jdbc.JdbcUtils;
 
+import java.sql.Connection;
 import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) {
         while (true) {
+            boolean connection = JdbcUtils.createConnection();
+            System.out.println(connection);
             HashController hashController = new HashController(new HashServiceImpl(new HashRepositoryImpl()));
             printMenu();
             String chosenService = ReadUtils.readLine();
@@ -44,7 +49,7 @@ public class Main {
     }
 
     private static void printMenu() {
-        System.out.println("Сервис сокращения ссылок\n\nВыберите действие:\n\n1. Сократить ссылку\n2. " +
+        System.out.println("Сервис сокращения ссылок!\n\nВыберите действие:\n\n1. Сократить ссылку\n2. " +
                 "Получить полную ссылку по короткой\n3. Выйти\n\n");
     }
 }

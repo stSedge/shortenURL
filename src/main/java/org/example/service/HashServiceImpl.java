@@ -1,12 +1,12 @@
-package main.java.org.example.service;
+package org.example.service;
 
 import java.util.Optional;
 import java.util.Base64;
 import java.util.Random;
-import main.java.org.example.repository.HashRepository;
-import main.java.org.example.repository.dao.HashDao;
-import main.java.org.example.service.model.Hash;
-import main.java.org.example.exception.EntityNotFoundException;
+import org.example.repository.HashRepository;
+import org.example.repository.dao.HashDao;
+import org.example.service.model.Hash;
+import org.example.exception.EntityNotFoundException;
 
 
 public class HashServiceImpl implements HashService{
@@ -19,7 +19,7 @@ public class HashServiceImpl implements HashService{
     public String toShortURL(String longURL) {
         Random r = new Random();
         int cnt = r.nextInt(10, 60);
-        int len = 7;
+        int len = 5;
         String shortURL = longURL;
         for (int i = 0; i < cnt; ++i) {
             while (shortURL.length() < 3 * len)
