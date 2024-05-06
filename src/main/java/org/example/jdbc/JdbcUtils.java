@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class JdbcUtils {
 
-    private static final String DB_URL = "jdbc:h2:~/db;AUTO_SERVER=TRUE";
+    private static final String DB_URL = "jdbc:h2:~/test;AUTO_SERVER=TRUE";
 
     private static Connection connection;
 

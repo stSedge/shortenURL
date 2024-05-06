@@ -11,7 +11,7 @@ import org.example.exception.EntityNotFoundException;
 import java.util.Optional;
 
 public interface HashService {
-    String addHash(Hash var1);
+    String addHash(Hash var1) ;
 
     String findHashByShortURL(String var1) throws EntityNotFoundException;
 

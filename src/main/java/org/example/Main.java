@@ -19,7 +19,6 @@ public class Main {
     public static void main(String[] args) {
         while (true) {
             boolean connection = JdbcUtils.createConnection();
-            System.out.println(connection);
             HashController hashController = new HashController(new HashServiceImpl(new HashRepositoryImpl()));
             printMenu();
             String chosenService = ReadUtils.readLine();
