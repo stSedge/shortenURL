@@ -25,7 +25,7 @@ public class Main {
         long id = -1;
         while (true) {
             boolean connection = JdbcUtils.createConnection();
-            System.out.printf(String.valueOf(connection));
+            //System.out.printf(String.valueOf(connection));
             HashController hashController = new HashController(new HashServiceImpl(new HashRepositoryImpl()));
             UserController userController = new UserController(new UserServiceImpl(new UserRepositoryImpl()));
             while (!ok) {
