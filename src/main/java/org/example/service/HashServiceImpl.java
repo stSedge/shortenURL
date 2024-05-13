@@ -32,7 +32,7 @@ public class HashServiceImpl implements HashService{
         return shortURL;
     }
 
-    public String addHash(Hash hash) {
+    public String addHash(Hash hash, long id) {
         String val = findHashByLongURL(hash.longURL());
         if (val != null) {
             return val;
@@ -43,10 +43,10 @@ public class HashServiceImpl implements HashService{
                 shortURL = toShortURL(shortURL + hash.longURL());
             }
             HashDao hashDao = new HashDao(hash.longURL(), shortURL);
-            return this.hashRepository.save(hashDao);
+            return this.hashRepository.save(hashDao, id);
         }
         catch (Exception ex) {
-           throw new RuntimeException("Error occurred while adding cat to DB", ex);
+           throw new RuntimeException("Error occurred while adding to DB", ex);
         }
     }
 
@@ -55,7 +55,7 @@ public class HashServiceImpl implements HashService{
             return this.hashRepository.findHashByShortURL(shortURL);
         }
         catch (SQLException ex) {
-            throw new RuntimeException("Error occurred while adding cat to DB", ex);
+            throw new RuntimeException("Error occurred while finding longurl in DB", ex);
         }
     }
 
@@ -64,7 +64,7 @@ public class HashServiceImpl implements HashService{
             return this.hashRepository.findHashByLongURL(longURL);
         }
         catch (SQLException ex) {
-            throw new RuntimeException("Error occurred while adding cat to DB", ex);
+            throw new RuntimeException("Error occurred while finding shorturl in  DB", ex);
         }
     }
 }

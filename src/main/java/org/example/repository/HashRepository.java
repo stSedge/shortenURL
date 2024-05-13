@@ -9,5 +9,5 @@ public interface HashRepository {
 
     String findHashByShortURL(String ShortURL) throws SQLException;
 
-    String save(HashDao var1) throws SQLException;
+    String save(HashDao var1, long id) throws SQLException;
 }

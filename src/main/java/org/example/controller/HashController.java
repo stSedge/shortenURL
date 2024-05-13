@@ -14,19 +14,14 @@ public class HashController {
         this.hashService = hashService;
     }
 
-    public String addHash(HashDto hashDto) {
-        return this.hashService.addHash(new Hash(hashDto.longURL()));
+    public String addHash(HashDto hashDto, long id) {
+        return this.hashService.addHash((new Hash(hashDto.longURL())), id);
     }
 
     public String findHash(String shortURL) throws EntityNotFoundException {
         String url = this.hashService.findHashByShortURL(shortURL);
         if (url == null)
-            throw new EntityNotFoundException("длинная сслыка не найдена");
+            throw new EntityNotFoundException("длинная ссылка не найдена");
         return url;
     }
-
-    /*public HashDto getHash(String longURL) throws EntityNotFoundException {
-        Hash hash = this.hashService.findHash(id);
-        return new HashDto();
-    }*/
 }
