@@ -1,4 +1,4 @@
-package main.java.org.example.repository.dao;
+package org.example.repository.dao;
 
 public record HashDao(String longURL, String shortURL) {
 

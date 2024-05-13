@@ -1,4 +1,4 @@
-package main.java.org.example.controller.dto;
+package org.example.controller.dto;
 
 public record HashDto(String longURL, String shortURL) {
 
