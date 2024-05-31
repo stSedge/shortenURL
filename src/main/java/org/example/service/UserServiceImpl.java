@@ -5,8 +5,10 @@ import org.example.repository.UserRepository;
 import org.example.repository.dao.UserDao;
 import org.example.service.model.User;
 import org.example.exception.EntityNotFoundException;
+import org.springframework.stereotype.Service;
 
 
+@Service
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
 
@@ -14,7 +16,7 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
-
+    @Override
     public long signIN(User user) {
         try {
             UserDao userDao = new UserDao(user.login(), user.password());
@@ -25,6 +27,7 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+    @Override
     public long logIN(User user) {
         try {
             UserDao userDao = new UserDao(user.login(), user.password());

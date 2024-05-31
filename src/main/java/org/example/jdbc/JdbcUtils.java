@@ -2,13 +2,17 @@ package org.example.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class JdbcUtils {
 
     private static final String DB_URL = "jdbc:h2:~/test;AUTO_SERVER=TRUE";
 
     private static Connection connection;
 
+    @Bean(value = "connection")
     public static boolean createConnection() {
         try {
             connection = DriverManager.getConnection(DB_URL, "angelina", "1234");

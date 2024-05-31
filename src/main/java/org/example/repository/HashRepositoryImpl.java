@@ -4,17 +4,19 @@ import org.example.jdbc.JdbcUtils;
 import java.sql.SQLException;
 
 import org.example.repository.dao.HashDao;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
+@Repository
 public class HashRepositoryImpl implements HashRepository{
 
     public HashRepositoryImpl() {
     }
 
+   @Override
     public String findHashByLongURL(String longURL) throws SQLException {
         String sql = "SELECT SHORTURL FROM URLS WHERE LONGURL =?";
         Connection connection = JdbcUtils.getConnection();
@@ -37,6 +39,7 @@ public class HashRepositoryImpl implements HashRepository{
         return -1;
     }
 
+    @Override
     public String findHashByShortURL(String shortURL) throws SQLException {
         String sql = "SELECT LONGURL FROM URLS WHERE SHORTURL =?";
         Connection connection = JdbcUtils.getConnection();
@@ -48,6 +51,7 @@ public class HashRepositoryImpl implements HashRepository{
         return null;
     }
 
+    @Override
     public String save(HashDao hashDao, long id) throws SQLException {
         Connection connection = JdbcUtils.getConnection();
         String sql = "INSERT INTO URLS (LONGURL, SHORTURL) VALUES (?,?)";

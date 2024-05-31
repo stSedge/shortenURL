@@ -8,8 +8,9 @@ import org.example.repository.HashRepository;
 import org.example.repository.dao.HashDao;
 import org.example.service.model.Hash;
 import org.example.exception.EntityNotFoundException;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class HashServiceImpl implements HashService{
     private final HashRepository hashRepository;
 
@@ -32,6 +33,7 @@ public class HashServiceImpl implements HashService{
         return shortURL;
     }
 
+    @Override
     public String addHash(Hash hash, long id) {
         String val = findHashByLongURL(hash.longURL());
         if (val != null) {
@@ -50,6 +52,7 @@ public class HashServiceImpl implements HashService{
         }
     }
 
+    @Override
     public String findHashByShortURL(String shortURL) throws EntityNotFoundException {
         try {
             return this.hashRepository.findHashByShortURL(shortURL);
@@ -59,6 +62,7 @@ public class HashServiceImpl implements HashService{
         }
     }
 
+    @Override
     public String findHashByLongURL(String longURL) {
         try {
             return this.hashRepository.findHashByLongURL(longURL);

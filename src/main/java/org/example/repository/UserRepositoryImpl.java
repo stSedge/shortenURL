@@ -4,18 +4,20 @@ import org.example.jdbc.JdbcUtils;
 import java.sql.SQLException;
 
 import org.example.repository.UserRepository;
+import org.springframework.stereotype.Repository;
 import org.example.repository.dao.UserDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
+@Repository
 public class UserRepositoryImpl implements UserRepository {
 
     public UserRepositoryImpl() {
     }
 
+    @Override
     public long findUser(UserDao userDao) throws SQLException {
         String sql = "SELECT ID FROM USERS WHERE LOGIN =? AND PASSWORD=?";
         Connection connection = JdbcUtils.getConnection();
@@ -28,6 +30,7 @@ public class UserRepositoryImpl implements UserRepository {
         return -1;
     }
 
+    @Override
     public long saveUser(UserDao userDao) throws SQLException {
         Connection connection = JdbcUtils.getConnection();
         String sql = "INSERT INTO USERS (LOGIN, PASSWORD) VALUES (?,?)";
