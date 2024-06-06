@@ -4,14 +4,12 @@ import org.example.controller.dto.HashDto;
 import org.example.service.HashService;
 import org.example.service.model.Hash;
 import org.example.exception.EntityNotFoundException;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/hash")
@@ -22,8 +20,8 @@ public class HashController {
         this.hashService = hashService;
     }
 
-    @PostMapping(value = "/create")
-    public String addHash(@RequestBody HashDto hashDto, long id) {
+    @PostMapping(value = "/create/{id}")
+    public String addHash(@RequestBody HashDto hashDto, @PathVariable("id") long id) {
         return this.hashService.addHash((new Hash(hashDto.longURL())), id);
     }
 

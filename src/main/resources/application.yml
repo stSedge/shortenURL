@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: shorten-url
+  datasource:
+    url: "jdbc:h2:~/test;AUTO_SERVER=TRUE"
+    username: "angelina"
+    password: "1234"
+
+logging:
+  level:
+    sql: INFO

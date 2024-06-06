@@ -1,11 +1,11 @@
 package org.example.service;
 
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.Base64;
 import java.util.Random;
-import org.example.repository.HashRepository;
-import org.example.repository.dao.HashDao;
+
+import org.example.dao.entity.HashEntity;
+import org.example.dao.repository.HashRepository;
 import org.example.service.model.Hash;
 import org.example.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -44,8 +44,9 @@ public class HashServiceImpl implements HashService{
             while (this.hashRepository.findHashByShortURL(shortURL) != null) {
                 shortURL = toShortURL(shortURL + hash.longURL());
             }
-            HashDao hashDao = new HashDao(hash.longURL(), shortURL);
-            return this.hashRepository.save(hashDao, id);
+            HashEntity hashDao = new HashEntity(hash.longURL(), shortURL);
+            this.hashRepository.save(hashDao.longURL(), hashDao.shortURL());
+            return this.hashRepository.findHashByLongURL(hashDao.longURL());
         }
         catch (Exception ex) {
            throw new RuntimeException("Error occurred while adding to DB", ex);
