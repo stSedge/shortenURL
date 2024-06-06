@@ -9,6 +9,7 @@ import org.example.dao.repository.HashRepository;
 import org.example.service.model.Hash;
 import org.example.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.Cacheable;
 
 @Service
 public class HashServiceImpl implements HashService{
@@ -54,6 +55,7 @@ public class HashServiceImpl implements HashService{
     }
 
     @Override
+    @Cacheable(cacheNames = "hashes", cacheManager = "cacheManager")
     public String findHashByShortURL(String shortURL) throws EntityNotFoundException {
         try {
             return this.hashRepository.findHashByShortURL(shortURL);
@@ -64,6 +66,7 @@ public class HashServiceImpl implements HashService{
     }
 
     @Override
+    @Cacheable(cacheNames = "hashes", cacheManager = "cacheManager")
     public String findHashByLongURL(String longURL) {
         try {
             return this.hashRepository.findHashByLongURL(longURL);
